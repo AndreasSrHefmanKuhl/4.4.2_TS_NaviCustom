@@ -68,10 +68,13 @@ class NewsWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('News'),
+          Text(
+            'News',
+            style: TextStyle(fontSize: 30),
+          ),
           Icon(
             Icons.newspaper,
-            size: 100,
+            size: 60,
           )
         ],
       ),
@@ -91,9 +94,16 @@ class LikeWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text('Likes'),
-            SizedBox(height: 250),
-            Text("Hier findest du deine geliketen Nachrichten"),
+            Text(
+              'Likes',
+              style: TextStyle(fontSize: 35),
+            ),
+            SizedBox(height: 50),
+            Text(
+              textAlign: TextAlign.center,
+              "Hier findest du deine gelikten Nachrichten.",
+              style: (TextStyle(fontSize: 20)),
+            ),
           ]),
     );
   }
@@ -111,13 +121,16 @@ class ProfileWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text('Profile'),
-            SizedBox(height: 250),
-            Icon(
-              Icons.people_rounded,
-              size: 250,
+            Text(
+              'Profile',
+              style: TextStyle(fontSize: 35),
             ),
-            Text("Hier findest du deine geliketen Nachrichten"),
+            SizedBox(height: 30),
+            Icon(
+              Icons.person,
+              size: 60,
+            ),
+            Text("Max Mustermann", style: TextStyle(fontSize: 25)),
           ]),
     );
   }
