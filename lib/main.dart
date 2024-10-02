@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -22,7 +20,7 @@ class _MainAppState extends State<MainApp> {
     ProfileWidget(),
   ];
 
-  void onItemTapped(int index) {
+  void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
@@ -36,6 +34,24 @@ class _MainAppState extends State<MainApp> {
           title: const Text('MyApp'),
         ),
         body: Center(child: _widgets.elementAt(_selectedIndex)),
+        bottomNavigationBar: BottomNavigationBar(
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: Icon(Icons.newspaper),
+                label: 'News',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.favorite),
+                label: 'Likes',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.person),
+                label: 'Profile',
+              )
+            ],
+            currentIndex: _selectedIndex,
+            backgroundColor: Colors.amber[800],
+            onTap: _onItemTapped),
       ),
     );
   }
