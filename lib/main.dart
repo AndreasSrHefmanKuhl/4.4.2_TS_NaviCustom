@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:navigationa_bar/Screens/like_widget.dart';
+import 'package:navigationa_bar/Screens/news_widget.dart';
+import 'package:navigationa_bar/Screens/profile_widget.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(const AppHome());
 }
 
-class MainApp extends StatefulWidget {
-  const MainApp({super.key});
+class AppHome extends StatefulWidget {
+  const AppHome({super.key});
 
   @override
-  State<MainApp> createState() => _MainAppState();
+  State<AppHome> createState() => _MainAppState();
 }
 
-class _MainAppState extends State<MainApp> {
+class _MainAppState extends State<AppHome> {
   int _selectedIndex = 0;
 
   static const List<Widget> _widgets = <Widget>[
@@ -31,10 +34,13 @@ class _MainAppState extends State<MainApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.lightGreenAccent,
           title: const Text('MyApp'),
         ),
         body: Center(child: _widgets.elementAt(_selectedIndex)), //
         bottomNavigationBar: BottomNavigationBar(
+            selectedItemColor: Colors.lightGreenAccent,
+            backgroundColor: Colors.grey,
             items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
                 icon: Icon(Icons.newspaper),
@@ -50,88 +56,8 @@ class _MainAppState extends State<MainApp> {
               )
             ],
             currentIndex: _selectedIndex,
-            backgroundColor: Colors.amber[800],
             onTap: _onItemTapped),
       ),
-    );
-  }
-}
-
-class NewsWidget extends StatelessWidget {
-  const NewsWidget({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            'News',
-            style: TextStyle(fontSize: 30),
-          ),
-          Icon(
-            Icons.newspaper,
-            size: 60,
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class LikeWidget extends StatelessWidget {
-  const LikeWidget({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
-              'Likes',
-              style: TextStyle(fontSize: 35),
-            ),
-            SizedBox(height: 50),
-            Text(
-              textAlign: TextAlign.center,
-              "Hier findest du deine gelikten Nachrichten.",
-              style: (TextStyle(fontSize: 20)),
-            ),
-          ]),
-    );
-  }
-}
-
-class ProfileWidget extends StatelessWidget {
-  const ProfileWidget({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
-              'Profile',
-              style: TextStyle(fontSize: 35),
-            ),
-            SizedBox(height: 30),
-            Icon(
-              Icons.person,
-              size: 60,
-            ),
-            Text("Max Mustermann", style: TextStyle(fontSize: 25)),
-          ]),
     );
   }
 }
