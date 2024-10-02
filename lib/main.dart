@@ -18,12 +18,12 @@ class _MainAppState extends State<MainApp> {
     NewsWidget(),
     LikeWidget(),
     ProfileWidget(),
-  ];
+  ]; //Widget Liste für verschiedene Screens
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
-    });
+    }); //funktion zum aufrauf bei tap auf element in navigationbar
   }
 
   @override
@@ -33,7 +33,7 @@ class _MainAppState extends State<MainApp> {
         appBar: AppBar(
           title: const Text('MyApp'),
         ),
-        body: Center(child: _widgets.elementAt(_selectedIndex)),
+        body: Center(child: _widgets.elementAt(_selectedIndex)), //
         bottomNavigationBar: BottomNavigationBar(
             items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
